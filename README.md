@@ -14,7 +14,7 @@ This repository contains a Python script for processing and filtering annotated 
 3. Navigate to the directory where the script is located.
 4. Execute the script using the following command:
    ```
-   python filter_FDR_FC.py.py [input_file]
+   python filter_FDR_FC.py [input_file]
    ```
    Replace `[input_file]` with the path to the DESeq2 annotated file you want to process.
 5. The processed output file will be generated in the same directory as the input file with a modified name.
