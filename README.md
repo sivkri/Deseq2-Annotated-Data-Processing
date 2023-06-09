@@ -14,37 +14,13 @@ This repository contains a Python script for processing and filtering annotated 
 3. Navigate to the directory where the script is located.
 4. Execute the script using the following command:
    ```
-   python process_deseq2_annotated.py [input_file]
+   python filter_FDR_FC.py.py [input_file]
    ```
    Replace `[input_file]` with the path to the DESeq2 annotated file you want to process.
 5. The processed output file will be generated in the same directory as the input file with a modified name.
 
-## Code Explanation
-```python
-import sys
 
-input = sys.argv[1]
-f1 = open(input)
-
-output = input.replace('deseq2_annotated', '1.5_FC_New')
-out = open(output, 'w')
-
-header = f1.readline()
-out.write(header)
-
-for line in f1:
-    l = line 
-    line = line.strip().split('\t')
-    gene_id = line[0]
-    log2FoldChange = float(line[2])
-    adjusted_P_value = float(line[5])
-
-    if adjusted_P_value < 0.05:
-        if log2FoldChange > 1 or log2FoldChange < -1:
-            out.write(l)
-```
-
-The provided Python script processes a DESeq2 annotated file by filtering the data based on log2 fold change and adjusted p-values. Here's a breakdown of the code:
+The provided Python script (filter_FDR_FC.py) processes a DESeq2 annotated file by filtering the data based on log2 fold change and adjusted p-values. Here's a breakdown of the code:
 
 1. The script imports the `sys` module to retrieve command-line arguments.
 2. The input file path is obtained from the command-line arguments and opened for reading (`f1`).
